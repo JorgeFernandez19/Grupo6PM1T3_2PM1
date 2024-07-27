@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Grupo6PM1T3_2"
         tools:targetApi="31">
         <activity
+            android:name=".InsertarPersonaActivity"
+            android:exported="false" />
+        <activity
             android:name=".PersonasActivity"
             android:exported="false" />
         <activity

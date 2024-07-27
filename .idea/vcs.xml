@@ -2,8 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Grupo6-tarea3.2" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Grupo6PM1T3_2PM1" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Grupo6Tarea3_2PM1" vcs="Git" />
+    <mapping directory="$USER_HOME$/Documents/GitHub/Grupo6PM1T3_2" vcs="Git" />
   </component>
 </project>

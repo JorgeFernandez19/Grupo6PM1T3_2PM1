@@ -35,39 +35,9 @@
         android:layout_height="wrap_content"
         android:hint="URL de la Foto" />
 
-    <EditText
-        android:id="@+id/editTextPersonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ID de la Persona" />
-
     <Button
-        android:id="@+id/btnCreate"
+        android:id="@+id/btnInsertar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Insertar Persona" />
-
-    <Button
-        android:id="@+id/btnRead"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Leer Persona" />
-
-    <Button
-        android:id="@+id/btnUpdate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Actualizar Persona" />
-
-    <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Eliminar Persona" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
 </LinearLayout>

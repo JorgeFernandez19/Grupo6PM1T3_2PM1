@@ -1,4 +1,4 @@
-package com.example.grupo6pm1t3_2;
+package com.example.grupo6pm1t3_2.modelo;
 
 public class Personas {
     private String id;
