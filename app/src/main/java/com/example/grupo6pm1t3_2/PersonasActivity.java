@@ -34,10 +34,10 @@ public class PersonasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personas);
 
-        // Inicializar la referencia a la base de datos
+
         databaseReference = FirebaseDatabase.getInstance("https://grupo6firebasecrud-default-rtdb.firebaseio.com/").getReference("personas");
 
-        // Configurar campos de entrada y botones
+
         editTextNombres = findViewById(R.id.editTextNombres);
         editTextApellidos = findViewById(R.id.editTextApellidos);
         editTextCorreo = findViewById(R.id.editTextCorreo);
@@ -49,7 +49,7 @@ public class PersonasActivity extends AppCompatActivity {
         btnUpdate = findViewById(R.id.btnUpdate);
         btnDelete = findViewById(R.id.btnDelete);
 
-        // Configurar RecyclerView
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -60,7 +60,7 @@ public class PersonasActivity extends AppCompatActivity {
         adapter = new PersonasAdapter(options, this::onPersonClick);
         recyclerView.setAdapter(adapter);
 
-        // Configurar eventos de clic en los botones
+
         btnCreate.setOnClickListener(v -> createPerson());
         btnRead.setOnClickListener(v -> readPerson());
         btnUpdate.setOnClickListener(v -> updatePerson());
@@ -68,7 +68,7 @@ public class PersonasActivity extends AppCompatActivity {
     }
 
     private void onPersonClick(Personas persona) {
-        // Mostrar los detalles de la persona seleccionada en los campos de entrada
+
         editTextNombres.setText(persona.getNombres());
         editTextApellidos.setText(persona.getApellidos());
         editTextCorreo.setText(persona.getCorreo());
@@ -78,16 +78,16 @@ public class PersonasActivity extends AppCompatActivity {
     }
 
     private void createPerson() {
-        // Generar un ID único
+
         String personId = databaseReference.push().getKey();
 
-        // Verificar si el ID se generó correctamente
+
         if (personId == null) {
             Toast.makeText(this, "Error al generar ID", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Crear una nueva persona con los datos ingresados por el usuario
+
         String nombres = editTextNombres.getText().toString();
         String apellidos = editTextApellidos.getText().toString();
         String correo = editTextCorreo.getText().toString();
@@ -96,12 +96,12 @@ public class PersonasActivity extends AppCompatActivity {
 
         Personas nuevaPersona = new Personas(personId, nombres, apellidos, correo, fechanac, foto);
 
-        // Insertar la nueva persona en la base de datos
+
         databaseReference.child(personId).setValue(nuevaPersona)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(PersonasActivity.this, "Persona creada", Toast.LENGTH_SHORT).show();
-                        // Limpiar los campos después de crear la persona
+
                         clearFields();
                     } else {
                         Toast.makeText(PersonasActivity.this, "Error al crear persona", Toast.LENGTH_SHORT).show();
@@ -110,7 +110,7 @@ public class PersonasActivity extends AppCompatActivity {
     }
 
     private void readPerson() {
-        // La lectura de datos ya se maneja automáticamente por el adaptador FirebaseRecyclerAdapter
+
     }
 
     private void updatePerson() {
@@ -122,14 +122,14 @@ public class PersonasActivity extends AppCompatActivity {
 
         DatabaseReference personReference = databaseReference.child(personId);
 
-        // Obtener datos actualizados
+
         String nombres = editTextNombres.getText().toString();
         String apellidos = editTextApellidos.getText().toString();
         String correo = editTextCorreo.getText().toString();
         String fechanac = editTextFechanac.getText().toString();
         String foto = editTextFoto.getText().toString();
 
-        // Crear un mapa de actualizaciones
+
         Map<String, Object> actualizaciones = new HashMap<>();
         actualizaciones.put("nombres", nombres);
         actualizaciones.put("apellidos", apellidos);
@@ -155,11 +155,11 @@ public class PersonasActivity extends AppCompatActivity {
 
         DatabaseReference personReference = databaseReference.child(personId);
 
-        // Eliminar la persona
+
         personReference.removeValue().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(PersonasActivity.this, "Persona eliminada", Toast.LENGTH_SHORT).show();
-                // Limpiar los campos después de eliminar la persona
+
                 clearFields();
             } else {
                 Toast.makeText(PersonasActivity.this, "Error al eliminar persona", Toast.LENGTH_SHORT).show();
