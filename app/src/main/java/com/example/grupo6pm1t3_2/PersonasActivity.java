@@ -64,7 +64,7 @@ public class PersonasActivity extends AppCompatActivity {
     }
 
     private void createPerson() {
-        // Crear una nueva persona
+
         String personId = databaseReference.push().getKey();
         Personas nuevaPersona = new Personas(personId, "Juan", "Perez", "juan.perez@example.com", "01-01-1990", "url_de_la_foto");
         databaseReference.child(personId).setValue(nuevaPersona)
@@ -72,9 +72,9 @@ public class PersonasActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            // Éxito
+
                         } else {
-                            // Error
+
                         }
                     }
                 });
@@ -86,22 +86,21 @@ public class PersonasActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Personas persona = snapshot.getValue(Personas.class);
-                    // Procesar la persona
+
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Manejar errores
+
             }
         });
     }
 
     private void updatePerson() {
-        String personId = "ID_DE_LA_PERSONA"; // Reemplaza con el ID de la persona a actualizar
+        String personId = "ID_DE_LA_PERSONA";
         DatabaseReference personReference = databaseReference.child(personId);
 
-        // Actualizar los datos de la persona
         Map<String, Object> actualizaciones = new HashMap<>();
         actualizaciones.put("nombres", "Juan Carlos");
         personReference.updateChildren(actualizaciones)
@@ -109,27 +108,27 @@ public class PersonasActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            // Éxito
+
                         } else {
-                            // Error
+
                         }
                     }
                 });
     }
 
     private void deletePerson() {
-        String personId = "ID_DE_LA_PERSONA"; // Reemplaza con el ID de la persona a eliminar
+        String personId = "ID_DE_LA_PERSONA";
         DatabaseReference personReference = databaseReference.child(personId);
 
-        // Eliminar la persona
+
         personReference.removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            // Éxito
+
                         } else {
-                            // Error
+
                         }
                     }
                 });
