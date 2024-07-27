@@ -25,7 +25,7 @@ public class PersonasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personas);
 
-        // Inicializar la referencia a la base de datos
+
         databaseReference = FirebaseDatabase.getInstance("https://grupo6firebasecrud-default-rtdb.firebaseio.com/").getReference("personas");
 
 
