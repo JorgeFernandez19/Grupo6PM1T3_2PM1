@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1094195813869",
+    "project_id": "grupo6firebasecrud",
+    "storage_bucket": "grupo6firebasecrud.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094195813869:android:0d86a987cbebfda9751be4",
+        "android_client_info": {
+          "package_name": "com.example.grupo6pm1t3_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA43c8v2_DgPNgw6byY5ll0Ya1QruaJ-xA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
